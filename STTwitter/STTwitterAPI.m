@@ -4611,7 +4611,10 @@ authenticateInsteadOfAuthorize:authenticateInsteadOfAuthorize
                       }
                       */
                      
-                     successBlock(mediaID, size, expiresAfterSecs, videoType);
+                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                         successBlock(mediaID, size, expiresAfterSecs, videoType);
+                     });
+
                  } errorBlock:^(NSError *error) {
                      errorBlock(error);
                  }];
