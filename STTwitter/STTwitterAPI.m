@@ -4458,6 +4458,7 @@ authenticateInsteadOfAuthorize:authenticateInsteadOfAuthorize
     md[@"command"] = @"INIT";
     md[@"media_type"] = @"video/mp4";
     md[@"total_bytes"] = [NSString stringWithFormat:@"%@", @([data length])];
+    md[@"media_category"] = @"tweet_video";
     
     return [self postResource:@"media/upload.json"
                 baseURLString:kBaseURLStringUpload_1_1
